@@ -1,0 +1,73 @@
+﻿<%@ Master Language="VB" CodeFile="Frontend.master.vb" Inherits="MasterPages_Frontend" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+  
+    <style type="text/css">
+        .auto-style2 {
+            width: 120px;
+            height: 183px;
+        }
+    </style>
+  
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Scripts>
+            <asp:ScriptReference Path="~/Scripts/jquery-1.10.2.min.js" />
+            </Scripts>
+        </asp:ScriptManager>
+    <div id="PageWrapper">
+<header><a href="/"></a></header>
+<nav><asp:Menu ID="Menu1" runat="server" CssClass="MainMenu" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" StaticEnableDefaultPopOutImage="False" Width="800px" Visible="False"></asp:Menu>
+    <asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" ShowExpandCollapse="False">
+        <LevelStyles>
+<asp:TreeNodeStyle CssClass="FirstLevelMenuItems" />
+</LevelStyles>
+    </asp:TreeView>
+    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
+        </nav>
+<section id="MainContent">
+    <asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath><br /><br />
+<asp:ContentPlaceHolder ID="cpMainContent" runat="server">
+</asp:ContentPlaceHolder>
+</section>
+<aside id="Sidebar">
+    Select a Theme<br />
+    <asp:DropDownList ID="ThemeList" runat="server" AutoPostBack="True">
+        <asp:ListItem>Monochrome</asp:ListItem>
+        <asp:ListItem>DarkGrey</asp:ListItem>
+    </asp:DropDownList>
+    <br />
+    <br />
+    <br />
+
+        <table bgcolor="white" class="auto-style2" border=2 bordercolor="orange">
+            <tr>
+                <td height="150">
+                    <marquee behavior="scroll" direction="up" scrolldelay="200" onMouseOver="this.stop();" onMouseOut="this.start();">
+                        <a href="http://www.forbes.com/sites/markhughes/2016/06/22/justice-league-set-report-the-story-the-costumes-the-villains-and-more/"> 'Justice League' Set Report: The Story, The Costumes, The Villains, And More </a><br /><br />
+                        <a href="http://moviepilot.com/posts/3971974"> Examining The Wakandan Culture: History, Religion And Gods Of The Black Panther </a><br /><br />
+                        <a href="http://www.universityherald.com/articles/32239/20160622/x-mens-wolverine-3-to-be-named-wolverine-weapon-x.htm"> X-men's Wolverine 3 To Be Named 'Wolverine: Weapon X'? </a><br /><br />
+                        <a href="http://www.comingsoon.net/tv/news/696935-grant-gustin-reveals-the-title-for-the-flash-season-3-premiere"> Grant Gustin Reveals the Title for the Flash Season 3 Premiere </a><br />
+                        </marquee>
+                </td>
+            </tr>
+        </table>
+    <br />
+
+        </aside>
+<footer>©2016 Society For the Promotion of Elfish Welfare</footer>
+</div>
+        <asp:ContentPlaceHolder ID="cpClientScript" runat="server">
+</asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
